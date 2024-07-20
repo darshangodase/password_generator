@@ -1,3 +1,28 @@
+/* Add this to your styles.css or a <style> block in your HTML */
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: #fbbf24; /* Tailwind yellow-400 */
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 0px rgba(251, 191, 36, 0.5); /* Tailwind yellow-400 */
+}
+
+.slider:focus {
+    outline: 3px solid #fbbf24; /* Tailwind yellow-400 */
+}
+
+.slider::-webkit-slider-thumb:hover {
+    outline: 2px solid #fbbf24; /* Tailwind yellow-400 */
+    background-color: #1e3a8a; /* Tailwind indigo-900 */
+    box-shadow: 0px 0px 25px 5px rgba(251, 191, 36, 0.8); /* Tailwind yellow-400 */
+}
+
+.tooltip.active {
+    opacity: 1;
+    transform: scale(1);
+}
 *,
 *::before,
 *::after {
@@ -173,6 +198,7 @@ h1 {
 
 .check input:checked{
     background-color: var(--vb-cyan);
+
 }
 
 
@@ -183,8 +209,9 @@ h1 {
     font-size:1.05rem;
     font-weight: 600;
     left:50%;
+
     top:-3.5px;
-    transform: translateX(-50%)  translateY(40%);
+    transform: translateX(-50%)  translateY(20%);
 }
 
 .check label {

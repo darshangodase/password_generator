@@ -2,79 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css">
+    <title>Password Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/pg.webp" type="image/x-icon">
+    <style>
+        /* Ensure mobile menu is positioned correctly */
+        @media (max-width: 1024px) {
+            #nav-content {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
 </head>
-<body>
-    
-    <div class="container">
+<body class="bg-gray-100">
 
-        <h1>Password Generator</h1>
-
-        <div class="display-container">
-
-            <input readonly placeholder="Password" class="display" data-passwordDisplay>
-
-            <button class="copyBtn" data-copy>
-                <span class="tooltip" data-copyMsg></span>
-                <img src="./assets/copy.svg" alt="copy" width="23" height="23">
-            </button>
-
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md relative">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="/assets/pg.webp" alt="QuickNotes Logo" class="h-12 w-12 mr-2">
+                <span class="font-bold text-lg">Password Generator</span>
+            </div>
+            <div class="block lg:hidden">
+                <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-400">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"><path d="M0 3h20v2H0zM0 7h20v2H0zM0 11h20v2H0z"/></svg>
+                </button>
+            </div>
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block" id="nav-content">
+                <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline-grey-1000 py-2 px-4" href="#features">Feature</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" href="#about">About</a>
+                    </li>
+                    <li class="mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-
-        <div class="input-container">
-
-            <!--password length section-->
-            <div class="length-container">
-                <p>Password Length</p>
-                <p data-lengthNumber>0</p>
-            </div>
-            
-            <!--slider-->
-            <input type="range" min="1" max="20" class="slider" step="1" data-lengthSlider>
-
-            <!-- checkboxes-->
-            <div class="check">
-                <input type="checkbox" id="uppercase">
-                <label for="uppercase">Includes Uppercase letters</label>
-            </div>
-
-            <div class="check">
-                <input type="checkbox" id="lowercase">
-                <label for="lowercase">Includes Lowercase letters</label>
-            </div>
-
-            <div class="check">
-                <input type="checkbox" id="numbers">
-                <label for="numbers">Includes Numbers </label>
-            </div>
-
-            <div class="check">
-                <input type="checkbox" id="symbols">
-                <label for="symbols">Includes Symbols </label>
-            </div>
-
-            <!-- strength section-->
-            <div class="strength-container">
-                <p>Strength</p>
-                <div class="indicator" data-indicator></div>
-            </div>
-
-            <!-- generate password-->
-            <button class="generateButton">Generate Password</button>
-
+    <!-- Hero Section -->
+    <section class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h2 class="text-3xl font-bold mb-2">Welcome to Password Generator App</h2>
+            <p class="mb-6">Generate strong, customizable passwords easily with real-time strength feedback and secure encryption. Perfect for all your security needs!</p>
+            <a href="password.html" class="bg-yellow-500 text-gray-900 py-2 px-4 rounded-full font-semibold">Try Now</a>
         </div>
+    </section>
 
-    </div>
-    <script src="script.js"></script>
-</body>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">Features</h2>
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <svg class="h-12 w-12 mb-4 text-yellow-500 mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.293 8.707l-1.5 1.5a1 1 0 0 1-1.415-1.415l1.5-1.5a1 1 0 0 1 1.415 1.415zm2-2l-4.5 4.5a1 1 0 0 1-1.415-1.415l4.5-4.5a1 1 0 0 1 1.415 1.415zm2-2l-7 7a1 1 0 0 1-1.415-1.415l7-7a1 1 0 0 1 1.415 1.415zM20 13v2a1 1 0 0 1-1 1h-7v1.415a1 1 0 0 1-1.707.707L8 17l2-2H3v2a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8h1a1 1 0 0 1 1 1v2h10l-2-2 3.707-3.707a1 1 0 0 1 .707-.293h4a1 1 0 0 1 1 1v2zm-1-8h-6.586L9.293 6.293A1 1 0 0 0 9 7v3h2v-2.414l3-3A1 1 0 0 1 15.586 4H19a1 1 0 0 1 1 1v2zm-6 4H3V6h10v3h-1a1 1 0 0 0-.707.293L13 10.414V9h-2v2zm0-4H3V6h7v1zm7 7H9v1h10v-1zm-1 2H9v1h8v-1z"/></svg>
+                        <h3 class="text-xl font-semibold mb-2">Customizable Password Length</h3>
+                        <p class="text-gray-600">Adjust password length to meet specific security needs.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <svg class="h-12 w-12 mb-4 text-yellow-500 mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.293 8.707l-1.5 1.5a1 1 0 0 1-1.415-1.415l1.5-1.5a1 1 0 0 1 1.415 1.415zm2-2l-4.5 4.5a1 1 0 0 1-1.415-1.415l4.5-4.5a1 1 0 0 1 1.415 1.415zm2-2l-7 7a1 1 0 0 1-1.415-1.415l7-7a1 1 0 0 1 1.415 1.415zM20 13v2a1 1 0 0 1-1 1h-7v1.415a1 1 0 0 1-1.707.707L8 17l2-2H3v2a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8h1a1 1 0 0 1 1 1v2h10l-2-2 3.707-3.707a1 1 0 0 1 .707-.293h4a1 1 0 0 1 1 1v2zm-1-8h-6.586L9.293 6.293A1 1 0 0 0 9 7v3h2v-2.414l3-3A1 1 0 0 1 15.586 4H19a1 1 0 0 1 1 1v2zm-6 4H3V6h10v3h-1a1 1 0 0 0-.707.293L13 10.414V9h-2v2zm0-4H3V6h7v1zm7 7H9v1h10v-1zm-1 2H9v1h8v-1z"/></svg>
+                        <h3 class="text-xl font-semibold mb-2">Password Strength Indicator</h3>
+                        <p class="text-gray-600">Instant assessment of password strength for better security.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <svg class="h-12 w-12 mb-4 text-yellow-500 mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.293 8.707l-1.5 1.5a1 1 0 0 1-1.415-1.415l1.5-1.5a1 1 0 0 1 1.415 1.415zm2-2l-4.5 4.5a1 1 0 0 1-1.415-1.415l4.5-4.5a1 1 0 0 1 1.415 1.415zm2-2l-7 7a1 1 0 0 1-1.415-1.415l7-7a1 1 0 0 1 1.415 1.415zM20 13v2a1 1 0 0 1-1 1h-7v1.415a1 1 0 0 1-1.707.707L8 17l2-2H3v2a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8h1a1 1 0 0 1 1 1v2h10l-2-2 3.707-3.707a1 1 0 0 1 .707-.293h4a1 1 0 0 1 1 1v2zm-1-8h-6.586L9.293 6.293A1 1 0 0 0 9 7v3h2v-2.414l3-3A1 1 0 0 1 15.586 4H19a1 1 0 0 1 1 1v2zm-6 4H3V6h10v3h-1a1 1 0 0 0-.707.293L13 10.414V9h-2v2zm0-4H3V6h7v1zm7 7H9v1h10v-1zm-1 2H9v1h8v-1z"/></svg>
+                        <h3 class="text-xl font-semibold mb-2">Copy to Clipboard</h3>
+                        <p class="text-gray-600">Copy generated passwords quickly with a single click.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-4 bg-gray-100">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-gray-700 mb-2">
+                    Contact us at: <a href="https://www.linkedin.com/in/darshangodase" class="text-blue-500 underline" target="_blank">LinkedIn</a>
+                </p>
+                <p class="text-gray-500">
+                    &copy; 2024 Darshan Godase
+                </p>
+            </div>
+        </section>
+
+        <script>
+            document.getElementById('nav-toggle').onclick = function() {
+                document.getElementById('nav-content').classList.toggle('hidden');
+            }
+        </script>
+    </body>
 </html>
